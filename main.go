@@ -41,14 +41,14 @@ func main() {
 	//el primero es la ruta a la cual se va a dirigir
 	//el segundo recibe la funcion de lo que va a responder
 	//responde con una funcion
-	router.HandleFunc("/", routes.Test).Methods("GET")
-	router.HandleFunc("/Docs", routes.Docs).Methods("GET")
+	router.HandleFunc("/", routes.Test).Methods("POST")
+	router.HandleFunc("/Docs", routes.Docs).Methods("POST")
 	router.HandleFunc("/Register", routes.Register).Methods("POST")
-	router.HandleFunc("/Login", routes.Loggin).Methods("GET")
-	router.HandleFunc("/Auth", routes.Auth).Methods("GET")
-	router.HandleFunc("/User/{id_user}", routes.UserById).Methods("GET")
+	router.HandleFunc("/Login", routes.Loggin).Methods("POST")
+	router.HandleFunc("/Auth", routes.Auth).Methods("POST")
+	router.HandleFunc("/User/{id_user}", routes.UserById).Methods("POST")
 
 	//inicializamos el servidor
 	//recibe el puerto y el router inicializador
-	http.ListenAndServe(":3001", router)
+	http.ListenAndServe(":3000", router)
 }
